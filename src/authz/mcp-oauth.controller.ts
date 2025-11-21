@@ -293,6 +293,8 @@ export function createMcpOAuthController(
         state,
         scope,
       } = query;
+      console.log('[MCP-OAUTH] authorize query.client_id =', query.client_id);
+
       const resource = this.options.resource;
       if (response_type !== 'code') {
         throw new BadRequestException('Only response_type=code is supported');
