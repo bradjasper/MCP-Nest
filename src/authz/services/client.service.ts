@@ -25,6 +25,8 @@ export class ClientService {
   async registerClient(
     registrationDto: ClientRegistrationDto,
   ): Promise<OAuthClient> {
+    console.log('[MCP-OAUTH] registerClient dto:', registrationDto);
+
     // Validate required fields
     if (
       !registrationDto.redirect_uris ||
@@ -85,6 +87,9 @@ export class ClientService {
     const filteredClient = Object.fromEntries(
       Object.entries(client).filter(([, value]) => value !== null),
     ) as OAuthClient;
+
+     console.log('[MCP-OAUTH] stored client:', newClient.client_id);
+
 
     return filteredClient;
   }
