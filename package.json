@@ -34,7 +34,7 @@
     "@nestjs/common": ">=9.0.0",
     "@nestjs/core": ">=9.0.0",
     "@nestjs/jwt": "^10.2.0",
-    "@nestjs/passport": "^11.0.5",
+    "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-fastify": "^11.1.5",
     "@nestjs/typeorm": ">=9.0.0",
     "express": ">=4.0.0",
