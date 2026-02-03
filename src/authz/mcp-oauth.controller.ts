@@ -547,7 +547,7 @@ export function createMcpOAuthController(
       // Store the auth code
       await this.store.storeAuthCode({
         code: authCode,
-        user_id: user.profile.username,
+        user_id: user.profile.id,
         client_id: session.clientId!,
         redirect_uri: session.redirectUri!,
         code_challenge: session.codeChallenge!,

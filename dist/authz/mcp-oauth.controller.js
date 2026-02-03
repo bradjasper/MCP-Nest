@@ -289,7 +289,7 @@ function createMcpOAuthController(endpoints = {}, options, authModuleId) {
             const authCode = (0, crypto_1.randomBytes)(32).toString('base64url');
             await this.store.storeAuthCode({
                 code: authCode,
-                user_id: user.profile.username,
+                user_id: user.profile.id,
                 client_id: session.clientId,
                 redirect_uri: session.redirectUri,
                 code_challenge: session.codeChallenge,

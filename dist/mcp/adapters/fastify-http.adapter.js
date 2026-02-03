@@ -4,6 +4,13 @@ exports.FastifyHttpAdapter = void 0;
 class FastifyHttpAdapter {
     adaptRequest(req) {
         const cookies = req.cookies;
+        const raw = req.raw;
+        if (req.user && raw) {
+            raw.user = req.user;
+        }
+        else {
+            throw new Error('No user to copy or no raw object');
+        }
         return {
             url: req.url,
             method: req.method,
