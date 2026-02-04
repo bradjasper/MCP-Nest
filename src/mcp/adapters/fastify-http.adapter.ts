@@ -40,13 +40,12 @@ export class FastifyHttpAdapter implements HttpAdapter {
     const cookies = req.cookies as Record<string, string | undefined> | undefined;
     const raw = (req as any).raw; // Raw Node.js IncomingMessage for MCP transport
     
-    // Copy user property from Fastify request to raw request
+    // Copy user property from Fastify request to raw request (if present)
     // This is needed because JWT guards set user on the Fastify request,
     // but MCP tools receive the raw request
+    // Note: user may not exist for unauthenticated endpoints like /authorize
     if ((req as any).user && raw) {
       raw.user = (req as any).user;
-    } else {
-      throw new Error('No user to copy or no raw object');
     }
     
     return {

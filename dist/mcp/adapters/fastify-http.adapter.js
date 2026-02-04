@@ -8,9 +8,6 @@ class FastifyHttpAdapter {
         if (req.user && raw) {
             raw.user = req.user;
         }
-        else {
-            throw new Error('No user to copy or no raw object');
-        }
         return {
             url: req.url,
             method: req.method,
